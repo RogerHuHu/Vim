@@ -54,9 +54,15 @@ endfunction
 "  < 编码配置 >
 " -----------------------------------------------------------------------------
 " 注：使用utf-8格式后，软件与程序源码、文件路径不能有中文，否则报错
-"set encoding=utf-8                                    "设置gvim内部编码，默认不更改
+set encoding=utf-8                                    "设置gvim内部编码，默认不更改
 "set fileencoding=utf-8                                "设置当前文件编码，可以更改，如：gbk（同cp936）
 set fileencodings=ucs-bom,utf-8,gbk,cp936,latin-1     "设置支持打开的文件的编码
+set langmenu=zh_CN.UTF-8   "设置菜单语言
+"导入删除菜单脚本，删除乱码的菜单
+source $VIMRUNTIME/delmenu.vim
+"导入正常的菜单脚本
+source $VIMRUNTIME/menu.vim
+language messages zh_CN.utf-8   "设置提示信息语言
 
 " -----------------------------------------------------------------------------
 "  < Vundle 插件管理工具配置 >
@@ -83,6 +89,8 @@ Plugin 'AutoComplPop'
 call vundle#end()            " required
 filetype plugin indent on    " required
 
+set guifont=consolas:h11:cANSI   "英文字体
+set gfw=幼圆:h10.5:cGB2312   "中文字体
 set nocp
 set completeopt=longest,menu   "关掉智能补全时的预览窗口
 filetype on   "开启文件类型侦测
@@ -166,7 +174,7 @@ let OmniCpp_GlobalScopeSearch=1
 let OmniCpp_DefaultNamespace=["std"]  
 let OmniCpp_ShowPrototypeInAbbr=1  "打开显示函数原型
 let OmniCpp_SelectFirstItem = 2"自动弹出时自动跳至第一个
-"let OmniCpp_DisplayMode=1；  "类成员显示控制(是否显示全部公有(public)私有(private)保护(protected)成员)
+let OmniCpp_DisplayMode=1  "类成员显示控制(是否显示全部公有(public)私有(private)保护(protected)成员)
 
 " -----------------------------------------------------------------------------
 "  < DoxygenToolkit.vim >
